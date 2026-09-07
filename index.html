@@ -3,21 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hoja de vida de Jorge Emanuel Soliz Luque, estudiante de Ingeniería de Sistemas">
+    <meta name="description" content="Hoja de vida de Jorge Emanuel Soliz Luque, estudiante de Ingeniería de Sistemas en la Universidad Católica Boliviana.">
     <meta name="author" content="Jorge Emanuel Soliz Luque">
-    <title>Jorge Emanuel Soliz Luque - Hoja de Vida</title>
+    <title>Jorge Emanuel Soliz Luque · Hoja de Vida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <a href="#contenido-principal">Saltar al contenido principal</a>
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 
-    <header role="banner">
-        <h1>Jorge Emanuel Soliz Luque</h1>
-        <p><strong>Estudiante de Ingeniería de Sistemas</strong> <em>(4to Semestre)</em></p>
+    <header class="site-header" role="banner">
+        <div class="wrap header-bar">
+            <p class="doc-ref">Hoja de vida <span>·</span> Rev. 2026 <span>·</span> La Paz, Bolivia</p>
+            <a class="btn" href="assets/documents/cv-jorge-soliz.pdf" download="CV-Jorge-Soliz-Luque.pdf">
+                Descargar CV en PDF
+            </a>
+        </div>
 
-        <nav aria-label="Navegación principal del currículum">
-            <h2>Índice</h2>
-            <ul>
+        <div class="wrap hero">
+            <figure class="hero-photo">
+                <img src="assets/images/jorge-soliz-foto.png" alt="Fotografía de perfil de Jorge Emanuel Soliz Luque" width="168" height="168">
+                <span aria-hidden="true"></span>
+            </figure>
+            <div class="hero-text">
+                <h1>Jorge Emanuel Soliz Luque</h1>
+                <p class="role">Estudiante de Ingeniería de Sistemas — Universidad Católica Boliviana (UCB)</p>
+                <p class="tagline">
+                    Interesado en el desarrollo de software, el diseño de bases de datos y la resolución
+                    de problemas algorítmicos, combinando esa formación con el ensamblaje y mantenimiento
+                    de hardware.
+                </p>
+                <ul class="quick-facts">
+                    <li><a href="mailto:jorge.500.soliz@gmail.com">jorge.500.soliz@gmail.com</a></li>
+                    <li><a href="tel:+59173225721">+591 73225721</a></li>
+                    <li>Chuquiaguillo, La Paz, Bolivia</li>
+                </ul>
+            </div>
+        </div>
+
+        <nav class="site-nav" aria-label="Navegación principal del currículum">
+            <ul class="wrap toc">
                 <li><a href="#perfil">Perfil</a></li>
                 <li><a href="#educacion">Educación</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
@@ -28,380 +57,420 @@
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
-
-        <p>
-            <a href="assets/documents/cv-jorge-soliz.pdf" download="CV-Jorge-Soliz-Luque.pdf">
-                Descargar CV en PDF
-            </a>
-        </p>
     </header>
 
     <main id="contenido-principal">
 
-        <section id="perfil" aria-labelledby="perfil-titulo">
-            <h2 id="perfil-titulo">Perfil</h2>
+        <section id="perfil" class="section" aria-labelledby="perfil-titulo">
+            <div class="wrap">
+                <div class="section-heading">
+                    <span class="section-num" aria-hidden="true">01</span>
+                    <h2 id="perfil-titulo">Perfil</h2>
+                </div>
 
-            <figure>
-                <picture>
-                    <source srcset="assets/images/jorge-soliz-foto.png" media="(min-width: 800px)">
-                    <source srcset="assets/images/jorge-soliz-foto.png" media="(min-width: 400px)">
-                    <img src="assets/images/jorge-soliz-foto.png" alt="Foto de perfil de Jorge Emanuel Soliz Luque" width="200" height="200">
-                </picture>
-                <figcaption>Jorge Emanuel Soliz Luque - Estudiante de Ingeniería de Sistemas</figcaption>
-            </figure>
-
-            <p>
-                Estudiante de <strong>Ingeniería de Sistemas</strong> en la Universidad Católica Boliviana (UCB),
-                cursando actualmente el <mark>4to Semestre</mark>. Interesado en el desarrollo de software,
-                bases de datos y la resolución de problemas algorítmicos.
-            </p>
-
-            <aside aria-label="Dato curioso">
-                <h3>¿Sabías que...?</h3>
-                <p><em>Jorge combina su pasión por la programación con el ensamblaje de PCs, entendiendo tanto el software como el hardware que lo ejecuta.</em></p>
-            </aside>
-
-            <p>
-                Progreso estimado de la carrera:
-                <progress id="avance-carrera" value="30" max="100">30%</progress>
-                <label for="avance-carrera"><small>30% completado</small></label>
-            </p>
-        </section>
-
-        <section id="educacion" aria-labelledby="educacion-titulo">
-            <h2 id="educacion-titulo">Educación</h2>
-            <article>
-                <h3>Ingeniería de Sistemas</h3>
-                <p><strong>Universidad Católica Boliviana (UCB)</strong></p>
                 <p>
-                    <time datetime="2025">2025</time> - <time datetime="2029">2029</time>
+                    Estudiante de <strong>Ingeniería de Sistemas</strong> en la Universidad Católica Boliviana
+                    (UCB), cursando la carrera desde 2025 hasta 2029. Su trabajo académico combina
+                    programación orientada a objetos, bases de datos relacionales, algoritmos y métodos
+                    estadísticos aplicados a problemas del entorno cotidiano — desde el comercio informal
+                    hasta la seguridad vial.
                 </p>
-            </article>
-        </section>
 
-        <section id="proyectos" aria-labelledby="proyectos-titulo">
-            <h2 id="proyectos-titulo">Proyectos</h2>
-
-            <article>
-                <h3>Diseño de Base de Datos para Comercio Informal</h3>
-                <p>
-                    Proyecto enfocado en el <strong>Mercado Rodríguez</strong>, para digitalizar
-                    y organizar la información de comerciantes informales.
-                </p>
-                <p><small>Fecha: <time datetime="2026-04">Abril 2026</time></small></p>
-
-                <details>
-                    <summary>Ver detalles adicionales del proyecto</summary>
+                <aside class="note" aria-label="Dato adicional sobre Jorge">
+                    <h3>Software y hardware</h3>
                     <p>
-                        El proyecto incluyó el <em>modelado entidad-relación</em>, la normalización
-                        de tablas hasta la 3FN y la propuesta de un sistema de consultas en <strong>MySQL</strong>
-                        para el registro de ventas, inventario y comerciantes del mercado.
+                        Además de programar, Jorge arma y configura computadoras personalizadas, lo que le
+                        da una comprensión práctica tanto del software que escribe como del hardware que
+                        lo ejecuta.
                     </p>
-                </details>
-            </article>
+                </aside>
 
-            <article>
-                <h3>Sistema de Gimnasio en Java</h3>
-                <p>
-                    Desarrollo de un sistema de gestión para gimnasios, aplicando
-                    <strong>programación orientada a objetos</strong> en <em>Java</em>.
-                </p>
-                <p><small>Fecha: <time datetime="2026-03">Marzo 2026</time></small></p>
-
-                <details>
-                    <summary>Ver detalles adicionales del proyecto</summary>
-                    <p>
-                        Incluyó el control de membresías, registro de clientes, horarios de clases
-                        y generación de reportes básicos, utilizando principios de POO como herencia
-                        y encapsulamiento.
-                    </p>
-                </details>
-            </article>
+                <div class="progress-row">
+                    <label for="avance-carrera">Avance estimado de la carrera</label>
+                    <progress id="avance-carrera" value="30" max="100">30%</progress>
+                    <span><small>30% completado</small></span>
+                </div>
+            </div>
         </section>
 
-        <section id="certificaciones" aria-labelledby="certificaciones-titulo">
-            <h2 id="certificaciones-titulo">Certificaciones</h2>
-            <ul>
-                <li>
-                    <strong>Certificación Internacional TOEIC Nivel B2</strong>
-                    <br><small>Obtenida: <time datetime="2026-07">Julio 2026</time></small>
-                </li>
-                <li>
-                    <strong>Google Cloud Engineering Certificate</strong>
-                    <details>
-                        <summary>Ver Skill Badges obtenidos</summary>
-                        <ul>
-                            <li>Build Infrastructure with Terraform</li>
-                            <li>Develop Your Google Cloud Network</li>
-                            <li>Implement Load Balancing</li>
-                            <li>Set Up an App Dev Environment</li>
+        <section id="educacion" class="section" aria-labelledby="educacion-titulo">
+            <div class="wrap">
+                <div class="section-heading">
+                    <span class="section-num" aria-hidden="true">02</span>
+                    <h2 id="educacion-titulo">Educación</h2>
+                </div>
+
+                <div class="timeline">
+                    <time datetime="2025">2025 — en curso</time>
+                    <article>
+                        <h3>Ingeniería de Sistemas</h3>
+                        <p><strong>Universidad Católica Boliviana (UCB)</strong> · La Paz, Bolivia</p>
+                        <ul class="course-tags">
+                            <li>Estructura de Datos y Algoritmos</li>
+                            <li>Programación II</li>
+                            <li>Bases de Datos Relacionales</li>
+                            <li>Física Mecánica</li>
+                            <li>Cálculo II</li>
+                            <li>Metodología de la Investigación</li>
                         </ul>
-                    </details>
-                </li>
-                <li><strong>Programación Orientada a Objetos</strong></li>
-                <li><strong>Diseño de Bases de Datos Relacionales</strong></li>
-                <li><strong>Metodología de la Investigación</strong></li>
-            </ul>
+                    </article>
+                </div>
+            </div>
         </section>
 
-        <section id="habilidades" aria-labelledby="habilidades-titulo">
-            <h2 id="habilidades-titulo">Habilidades</h2>
+        <section id="proyectos" class="section" aria-labelledby="proyectos-titulo">
+            <div class="wrap">
+                <div class="section-heading">
+                    <span class="section-num" aria-hidden="true">03</span>
+                    <h2 id="proyectos-titulo">Proyectos</h2>
+                </div>
+                <p class="lede">Trabajos desarrollados como parte de la carrera y por iniciativa propia.</p>
 
-            <article>
-                <h3>Lenguajes y Tecnologías</h3>
-                <ul>
-                    <li>
-                        <label for="skill-java">Java</label>
-                        <meter id="skill-java" min="0" max="100" value="90" low="40" high="80" optimum="100">90%</meter>
-                        <span>90%</span>
-                    </li>
-                    <li>
-                        <label for="skill-mysql">MySQL</label>
-                        <meter id="skill-mysql" min="0" max="100" value="80" low="40" high="80" optimum="100">80%</meter>
-                        <span>80%</span>
-                    </li>
-                    <li>
-                        <label for="skill-ensamblaje">Ensamblaje de PC</label>
-                        <meter id="skill-ensamblaje" min="0" max="100" value="85" low="40" high="80" optimum="100">85%</meter>
-                        <span>85%</span>
-                    </li>
-                    <li>
-                        <label for="skill-cpp">C++</label>
-                        <meter id="skill-cpp" min="0" max="100" value="70" low="40" high="80" optimum="100">70%</meter>
-                        <span>70%</span>
-                    </li>
-                    <li>
-                        <label for="skill-python">Python</label>
-                        <meter id="skill-python" min="0" max="100" value="60" low="40" high="80" optimum="100">60%</meter>
-                        <span>60%</span>
-                    </li>
-                </ul>
-            </article>
+                <div class="project-grid">
+                    <article class="project-card">
+                        <span class="meta">Programación II · Marzo 2026 · 90/100</span>
+                        <h3>Sistema de Gimnasio en Java</h3>
+                        <p>Framework de gestión de gimnasios aplicando programación orientada a objetos.</p>
+                        <details>
+                            <summary>Ver detalles</summary>
+                            <p>
+                                Framework polimórfico con control de membresías, registro de clientes,
+                                horarios de clases y reportes básicos, aplicando herencia y encapsulamiento.
+                            </p>
+                        </details>
+                    </article>
 
-            <article>
-                <h3>Herramientas de Desarrollo</h3>
-                <ul>
-                    <li>Git / GitHub</li>
-                    <li>Visual Studio Code</li>
-                    <li>XAMPP</li>
-                </ul>
-            </article>
+                    <article class="project-card">
+                        <span class="meta">Base de Datos I · Abril 2026</span>
+                        <h3>Base de Datos — Mercado Rodríguez</h3>
+                        <p>Esquema relacional conceptual para digitalizar la información del comercio informal.</p>
+                        <details>
+                            <summary>Ver detalles</summary>
+                            <p>
+                                Modelo entidad-relación con normalización, pensado para registrar precios,
+                                sus rangos de volatilidad y el historial de transacciones del mercado.
+                            </p>
+                        </details>
+                    </article>
 
-            <article>
-                <h3>Habilidades Profesionales</h3>
-                <ul>
-                    <li>Resolución algorítmica</li>
-                    <li>Lógica orientada a objetos</li>
-                    <li>Análisis de datos</li>
-                </ul>
-            </article>
+                    <article class="project-card">
+                        <span class="meta">Metodología de la Investigación · Abril 2026</span>
+                        <h3>Modelo estadístico de ruta y seguridad de traslado</h3>
+                        <p>
+                            Modelo con intervalos de confianza del 90% para analizar la seguridad de la
+                            ruta diaria a la universidad en un Suzuki Jimny.
+                        </p>
+                    </article>
+
+                    <article class="project-card">
+                        <span class="meta">Física Mecánica · Abril 2026</span>
+                        <h3>Informe de laboratorio: centro de masa</h3>
+                        <p>
+                            Informe con modelos de integración multivariable de masa y densidad lineal para
+                            calcular el centro de masa de una barra continua.
+                        </p>
+                    </article>
+
+                    <article class="project-card">
+                        <span class="meta">Enero 2026</span>
+                        <h3>Depuración de código Assembly (NASM x86, 32 bits)</h3>
+                        <p>Identificación y corrección de errores en bloques de código Assembly de 32 bits.</p>
+                    </article>
+
+                    <article class="project-card">
+                        <span class="meta">Proyecto personal · GitHub</span>
+                        <h3>HabitTracker</h3>
+                        <p>Repositorio para el seguimiento del propio proceso de desarrollo de software.</p>
+                    </article>
+                </div>
+            </div>
         </section>
 
-        <section id="idiomas" aria-labelledby="idiomas-titulo">
-            <h2 id="idiomas-titulo">Idiomas</h2>
-            <table>
-                <caption>Nivel de dominio de idiomas</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Idioma</th>
-                        <th scope="col">Nivel General</th>
-                        <th scope="col">Lectura</th>
-                        <th scope="col">Escritura</th>
-                        <th scope="col">Conversación</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Español</th>
-                        <td>Nativo</td>
-                        <td>Nativo</td>
-                        <td>Nativo</td>
-                        <td>Nativo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Inglés</th>
-                        <td>B2</td>
-                        <td>Avanzada</td>
-                        <td>Intermedia</td>
-                        <td>Avanzada</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Alemán</th>
-                        <td>B1</td>
-                        <td>Intermedio</td>
-                        <td>Intermedio</td>
-                        <td>Intermedio</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <section id="certificaciones" class="section" aria-labelledby="certificaciones-titulo">
+            <div class="wrap">
+                <div class="section-heading">
+                    <span class="section-num" aria-hidden="true">04</span>
+                    <h2 id="certificaciones-titulo">Certificaciones</h2>
+                </div>
 
-        <section id="multimedia" aria-labelledby="multimedia-titulo">
-            <h2 id="multimedia-titulo">Multimedia</h2>
-
-            <article>
-                <h3>Presentación en audio</h3>
-                <figure>
-                    <audio controls src="assets/audio/presentacion-jorge.mp3">
-                        Tu navegador no soporta el elemento de audio.
-                        <a href="assets/audio/presentacion-jorge.mp3">Descargar el audio</a>
-                    </audio>
-                    <figcaption>Breve presentación en audio de Jorge Emanuel Soliz Luque</figcaption>
-                </figure>
-            </article>
-
-            <article>
-                <h3>Video de proyecto</h3>
-                <figure>
-                    <video controls width="480" height="270" poster="assets/images/miniatura-video.jpg">
-                        <source src="assets/video/demo-sistema-gimnasio.mp4" type="video/mp4">
-                        <track kind="captions" src="assets/video/demo-sistema-gimnasio-es.vtt" srclang="es" label="Español">
-                        Tu navegador no soporta el elemento de video.
-                        <a href="assets/video/demo-sistema-gimnasio.mp4">Descargar el video</a>
-                    </video>
-                    <figcaption>Demostración del Sistema de Gimnasio desarrollado en Java</figcaption>
-                </figure>
-            </article>
-        </section>
-
-        <section id="contacto" aria-labelledby="contacto-titulo">
-            <h2 id="contacto-titulo">Contacto</h2>
-
-            <address>
-                Chuquiaguillo, La Paz, Bolivia<br>
-                Teléfono: <a href="tel:+59173225721">+591 73225721</a><br>
-                Correo: <a href="mailto:jorge.500.soliz@gmail.com">jorge.500.soliz@gmail.com</a>
-            </address>
-
-            <p>
-                <button type="button" command="show-modal" commandfor="dialogo-contacto">
-                    Ver contacto rápido
-                </button>
-            </p>
-
-            <dialog id="dialogo-contacto" aria-labelledby="dialogo-titulo">
-                <h3 id="dialogo-titulo">Contacto Rápido</h3>
-                <ul>
-                    <li><strong>Teléfono:</strong> +591 73225721</li>
-                    <li><strong>Correo:</strong> jorge.500.soliz@gmail.com</li>
-                    <li><strong>Ubicación:</strong> Chuquiaguillo, La Paz, Bolivia</li>
+                <ul class="cert-list">
+                    <li>
+                        <strong>Certificación Internacional TOEIC — Nivel B2</strong>
+                        <small>Julio 2026</small>
+                    </li>
+                    <li>
+                        <strong>Google Cloud Engineering Certificate</strong>
+                        <div class="badge-list">
+                            <small>Skill badges obtenidos:</small>
+                            <ul>
+                                <li>Build Infrastructure with Terraform</li>
+                                <li>Develop your Google Cloud Network</li>
+                                <li>Implement Load Balancing</li>
+                                <li>Set Up an App Dev Environment</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><strong>Programación Orientada a Objetos</strong></li>
+                    <li><strong>Diseño de Bases de Datos Relacionales</strong></li>
+                    <li><strong>Metodología de la Investigación</strong></li>
                 </ul>
-                <form method="dialog">
-                    <button type="submit">Cerrar</button>
-                </form>
-            </dialog>
+            </div>
+        </section>
 
-            <form action="#" method="post" aria-labelledby="form-titulo">
-                <h3 id="form-titulo">Formulario de contacto</h3>
+        <section id="habilidades" class="section" aria-labelledby="habilidades-titulo">
+            <div class="wrap">
+                <div class="section-heading">
+                    <span class="section-num" aria-hidden="true">05</span>
+                    <h2 id="habilidades-titulo">Habilidades</h2>
+                </div>
 
-                <fieldset>
-                    <legend>Datos personales del remitente</legend>
+                <div class="skills-grid">
+                    <article>
+                        <h3>Lenguajes y tecnologías</h3>
+                        <ul class="skill-bars">
+                            <li>
+                                <div class="skill-label"><label for="skill-java">Java</label><span>90%</span></div>
+                                <meter id="skill-java" min="0" max="100" value="90" low="40" high="80" optimum="100">90%</meter>
+                            </li>
+                            <li>
+                                <div class="skill-label"><label for="skill-hw">Ensamblaje de hardware</label><span>85%</span></div>
+                                <meter id="skill-hw" min="0" max="100" value="85" low="40" high="80" optimum="100">85%</meter>
+                            </li>
+                            <li>
+                                <div class="skill-label"><label for="skill-sql">SQL / MySQL</label><span>80%</span></div>
+                                <meter id="skill-sql" min="0" max="100" value="80" low="40" high="80" optimum="100">80%</meter>
+                            </li>
+                            <li>
+                                <div class="skill-label"><label for="skill-asm">Assembly x86 (NASM)</label><span>65%</span></div>
+                                <meter id="skill-asm" min="0" max="100" value="65" low="40" high="80" optimum="100">65%</meter>
+                            </li>
+                            <li>
+                                <div class="skill-label"><label for="skill-cpp">C++</label><span>70%</span></div>
+                                <meter id="skill-cpp" min="0" max="100" value="70" low="40" high="80" optimum="100">70%</meter>
+                            </li>
+                            <li>
+                                <div class="skill-label"><label for="skill-py">Python</label><span>60%</span></div>
+                                <meter id="skill-py" min="0" max="100" value="60" low="40" high="80" optimum="100">60%</meter>
+                            </li>
+                        </ul>
+                    </article>
 
-                    <p>
-                        <label for="nombre-remitente">Nombre completo:</label><br>
-                        <input
-                            type="text"
-                            id="nombre-remitente"
-                            name="nombre-remitente"
-                            placeholder="Ej: María Pérez"
-                            minlength="3"
-                            maxlength="60"
-                            required>
-                    </p>
+                    <article>
+                        <h3>Herramientas</h3>
+                        <ul class="chip-list">
+                            <li>Git / GitHub</li>
+                            <li>Visual Studio Code</li>
+                            <li>XAMPP</li>
+                            <li>Google Colab</li>
+                        </ul>
+                    </article>
 
-                    <p>
-                        <label for="correo-remitente">Correo electrónico:</label><br>
-                        <input
-                            type="email"
-                            id="correo-remitente"
-                            name="correo-remitente"
-                            placeholder="ejemplo@correo.com"
-                            required>
-                    </p>
+                    <article>
+                        <h3>Habilidades profesionales</h3>
+                        <ul class="chip-list">
+                            <li>Resolución algorítmica</li>
+                            <li>Modelado de bases de datos</li>
+                            <li>Análisis estadístico aplicado</li>
+                            <li>Lógica orientada a objetos</li>
+                            <li>Documentación técnica</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                    <p>
-                        <label for="telefono-remitente">Teléfono (Bolivia):</label><br>
-                        <input
-                            type="tel"
-                            id="telefono-remitente"
-                            name="telefono-remitente"
-                            placeholder="Ej: 71234567"
-                            pattern="[67][0-9]{7}"
-                            title="Debe ser un número boliviano de 8 dígitos, comenzando en 6 o 7"
-                            required>
-                    </p>
+        <section id="idiomas" class="section" aria-labelledby="idiomas-titulo">
+            <div class="wrap">
+                <div class="section-heading">
+                    <span class="section-num" aria-hidden="true">06</span>
+                    <h2 id="idiomas-titulo">Idiomas</h2>
+                </div>
 
-                    <p>
-                        <label for="edad-remitente">Edad:</label><br>
-                        <input
-                            type="number"
-                            id="edad-remitente"
-                            name="edad-remitente"
-                            min="18"
-                            max="99"
-                            placeholder="Ej: 25"
-                            required>
-                    </p>
-                </fieldset>
+                <div class="table-wrap">
+                    <table>
+                        <caption>Nivel de dominio por idioma</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Idioma</th>
+                                <th scope="col">Nivel general</th>
+                                <th scope="col">Lectura</th>
+                                <th scope="col">Escritura</th>
+                                <th scope="col">Conversación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Español</th>
+                                <td>Nativo</td>
+                                <td>Nativo</td>
+                                <td>Nativo</td>
+                                <td>Nativo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Inglés</th>
+                                <td>B2</td>
+                                <td>Avanzada</td>
+                                <td>Intermedia</td>
+                                <td>Avanzada</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Alemán</th>
+                                <td>B1</td>
+                                <td>Intermedio</td>
+                                <td>Intermedio</td>
+                                <td>Intermedio</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
 
-                <fieldset>
-                    <legend>Detalles del mensaje</legend>
+        <section id="multimedia" class="section" aria-labelledby="multimedia-titulo">
+            <div class="wrap">
+                <div class="section-heading">
+                    <span class="section-num" aria-hidden="true">07</span>
+                    <h2 id="multimedia-titulo">Multimedia</h2>
+                </div>
 
-                    <p>
-                        <label for="motivo-mensaje">Motivo del mensaje:</label><br>
-                        <select id="motivo-mensaje" name="motivo-mensaje" required>
-                            <option value="">-- Selecciona una opción --</option>
-                            <option value="oferta-laboral">Oferta laboral</option>
-                            <option value="proyecto-colaborativo">Propuesta de proyecto colaborativo</option>
-                            <option value="consulta-academica">Consulta académica</option>
-                            <option value="otro">Otro</option>
-                        </select>
-                    </p>
+                <div class="media-row">
+                    <article>
+                        <h3>Presentación en audio</h3>
+                        <figure>
+                            <audio controls src="assets/audio/presentacion-jorge.mp3">
+                                Tu navegador no soporta el elemento de audio.
+                                <a href="assets/audio/presentacion-jorge.mp3">Descargar el audio</a>
+                            </audio>
+                            <figcaption>Breve presentación en audio de Jorge Emanuel Soliz Luque.</figcaption>
+                        </figure>
+                    </article>
 
-                    <p>
-                        <label for="asunto-mensaje">Asunto:</label><br>
-                        <input
-                            type="text"
-                            id="asunto-mensaje"
-                            name="asunto-mensaje"
-                            placeholder="Escribe el asunto del mensaje"
-                            maxlength="80"
-                            required>
-                    </p>
+                    <article>
+                        <h3>Video de proyecto</h3>
+                        <figure>
+                            <video controls>
+                                <source src="assets/video/demo-sistema-gimnasio.mp4" type="video/mp4">
+                                <track kind="captions" src="assets/video/demo-sistema-gimnasio-es.vtt" srclang="es" label="Español">
+                                Tu navegador no soporta el elemento de video.
+                                <a href="assets/video/demo-sistema-gimnasio.mp4">Descargar el video</a>
+                            </video>
+                            <figcaption>Demostración del Sistema de Gimnasio desarrollado en Java.</figcaption>
+                        </figure>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                    <p>
-                        <label for="mensaje-texto">Mensaje:</label><br>
-                        <textarea
-                            id="mensaje-texto"
-                            name="mensaje-texto"
-                            rows="6"
-                            cols="40"
-                            minlength="10"
-                            maxlength="500"
-                            placeholder="Escribe aquí tu mensaje..."
-                            required></textarea>
-                    </p>
+        <section id="contacto" class="section" aria-labelledby="contacto-titulo">
+            <div class="wrap">
+                <div class="section-heading">
+                    <span class="section-num" aria-hidden="true">08</span>
+                    <h2 id="contacto-titulo">Contacto</h2>
+                </div>
 
-                    <p>
-                        <label for="fecha-contacto">Fecha en la que deseas ser contactado:</label><br>
-                        <input
-                            type="date"
-                            id="fecha-contacto"
-                            name="fecha-contacto">
-                    </p>
-                </fieldset>
+                <div class="contact-layout">
+                    <div class="contact-info">
+                        <address>
+                            Chuquiaguillo, La Paz, Bolivia<br>
+                            Teléfono: <a href="tel:+59173225721">+591 73225721</a><br>
+                            Correo: <a href="mailto:jorge.500.soliz@gmail.com">jorge.500.soliz@gmail.com</a>
+                        </address>
 
-                <p>
-                    <button type="submit">Enviar mensaje</button>
-                    <button type="reset">Limpiar formulario</button>
-                </p>
-            </form>
+                        <details>
+                            <summary>Ver contacto rápido</summary>
+                            <ul>
+                                <li><strong>Teléfono:</strong> +591 73225721</li>
+                                <li><strong>Correo:</strong> jorge.500.soliz@gmail.com</li>
+                                <li><strong>Ubicación:</strong> Chuquiaguillo, La Paz, Bolivia</li>
+                            </ul>
+                        </details>
+                    </div>
+
+                    <form action="#" method="post" aria-labelledby="form-titulo">
+                        <h3 id="form-titulo">Formulario de contacto</h3>
+
+                        <fieldset>
+                            <legend>Datos del remitente</legend>
+                            <div class="form-grid">
+                                <div class="form-field full">
+                                    <label for="nombre-remitente">Nombre completo</label>
+                                    <input type="text" id="nombre-remitente" name="nombre-remitente"
+                                        placeholder="Ej: María Pérez" minlength="3" maxlength="60" required>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="correo-remitente">Correo electrónico</label>
+                                    <input type="email" id="correo-remitente" name="correo-remitente"
+                                        placeholder="ejemplo@correo.com" required>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="telefono-remitente">Teléfono (Bolivia)</label>
+                                    <input type="tel" id="telefono-remitente" name="telefono-remitente"
+                                        placeholder="Ej: 71234567" pattern="[67][0-9]{7}"
+                                        title="Debe ser un número boliviano de 8 dígitos, comenzando en 6 o 7" required>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="edad-remitente">Edad</label>
+                                    <input type="number" id="edad-remitente" name="edad-remitente"
+                                        min="18" max="99" placeholder="Ej: 25" required>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="fecha-contacto">Fecha preferida de contacto</label>
+                                    <input type="date" id="fecha-contacto" name="fecha-contacto">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Mensaje</legend>
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="motivo-mensaje">Motivo del mensaje</label>
+                                    <select id="motivo-mensaje" name="motivo-mensaje" required>
+                                        <option value="">-- Selecciona una opción --</option>
+                                        <option value="oferta-laboral">Oferta laboral</option>
+                                        <option value="proyecto-colaborativo">Proyecto colaborativo</option>
+                                        <option value="consulta-academica">Consulta académica</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="asunto-mensaje">Asunto</label>
+                                    <input type="text" id="asunto-mensaje" name="asunto-mensaje"
+                                        placeholder="Asunto del mensaje" maxlength="80" required>
+                                </div>
+
+                                <div class="form-field full">
+                                    <label for="mensaje-texto">Mensaje</label>
+                                    <textarea id="mensaje-texto" name="mensaje-texto" rows="5"
+                                        minlength="10" maxlength="500"
+                                        placeholder="Escribe aquí tu mensaje..." required></textarea>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn">Enviar mensaje</button>
+                            <button type="reset" class="btn btn-ghost">Limpiar formulario</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </section>
 
     </main>
 
-    <footer role="contentinfo">
-        <p><small>Jorge Emanuel Soliz Luque | Chuquiaguillo, La Paz, Bolivia</small></p>
+    <footer class="site-footer" role="contentinfo">
+        <div class="wrap title-block">
+            <span><strong>Documento:</strong> Hoja de vida</span>
+            <span><strong>Autor:</strong> Jorge Emanuel Soliz Luque</span>
+            <span><strong>Ubicación:</strong> La Paz, Bolivia</span>
+            <span><strong>Hoja:</strong> 1 de 1</span>
+        </div>
     </footer>
 
 </body>
