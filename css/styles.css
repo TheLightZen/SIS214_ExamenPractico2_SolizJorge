@@ -134,6 +134,18 @@ small { color: var(--color_ink_soft); }
   top: 0;
 }
 
+.sr_only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .wrap {
   max-width: var(--content_width);
   margin-inline: auto;
