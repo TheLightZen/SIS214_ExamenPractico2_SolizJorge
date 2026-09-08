@@ -11,6 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+        /* Aplica el tema guardado antes de pintar la página, para
+           evitar el parpadeo de un tema incorrecto al cargar. */
+        (function aplicar_tema_inicial() {
+            var tema_guardado = localStorage.getItem("tema_preferido");
+            var prefiere_oscuro = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            var tema = tema_guardado || (prefiere_oscuro ? "dark" : "light");
+            document.documentElement.setAttribute("data-theme", tema);
+        })();
+    </script>
 </head>
 <body>
 
@@ -20,6 +30,10 @@
         <div class="wrap header_bar">
             <p class="doc_ref">Hoja de vida <span>·</span> Rev. 2026 <span>·</span> La Paz, Bolivia</p>
             <div class="header_actions">
+                <button type="button" id="theme_toggle" class="theme_toggle" aria-pressed="false">
+                    <span class="theme_toggle_icon" aria-hidden="true">☾</span>
+                    <span id="theme_toggle_label">Modo oscuro</span>
+                </button>
                 <a class="btn" href="assets/documents/cv-jorge-soliz.pdf" download="CV-Jorge-Soliz-Luque.pdf">
                     Descargar CV en PDF
                 </a>
@@ -475,5 +489,6 @@
         </div>
     </footer>
 
+    <script src="js/script.js" defer></script>
 </body>
 </html>
