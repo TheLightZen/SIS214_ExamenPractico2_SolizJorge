@@ -411,26 +411,34 @@
                                 <div class="form_field full">
                                     <label for="nombre_remitente">Nombre completo</label>
                                     <input type="text" id="nombre_remitente" name="nombre_remitente"
-                                        placeholder="Ej: María Pérez" minlength="3" maxlength="60" required>
+                                        placeholder="Ej: María Pérez" minlength="3" maxlength="60" required
+                                        aria-describedby="error_nombre_remitente">
+                                    <span class="field_error" id="error_nombre_remitente" role="alert"></span>
                                 </div>
 
                                 <div class="form_field">
                                     <label for="correo_remitente">Correo electrónico</label>
                                     <input type="email" id="correo_remitente" name="correo_remitente"
-                                        placeholder="ejemplo@correo.com" required>
+                                        placeholder="ejemplo@correo.com" required
+                                        aria-describedby="error_correo_remitente">
+                                    <span class="field_error" id="error_correo_remitente" role="alert"></span>
                                 </div>
 
                                 <div class="form_field">
                                     <label for="telefono_remitente">Teléfono (Bolivia)</label>
                                     <input type="tel" id="telefono_remitente" name="telefono_remitente"
                                         placeholder="Ej: 71234567" pattern="[67][0-9]{7}"
-                                        title="Debe ser un número boliviano de 8 dígitos, comenzando en 6 o 7" required>
+                                        title="Debe ser un número boliviano de 8 dígitos, comenzando en 6 o 7" required
+                                        aria-describedby="error_telefono_remitente">
+                                    <span class="field_error" id="error_telefono_remitente" role="alert"></span>
                                 </div>
 
                                 <div class="form_field">
                                     <label for="edad_remitente">Edad</label>
                                     <input type="number" id="edad_remitente" name="edad_remitente"
-                                        min="18" max="99" placeholder="Ej: 25" required>
+                                        min="18" max="99" placeholder="Ej: 25" required
+                                        aria-describedby="error_edad_remitente">
+                                    <span class="field_error" id="error_edad_remitente" role="alert"></span>
                                 </div>
 
                                 <div class="form_field">
@@ -445,26 +453,32 @@
                             <div class="form_grid">
                                 <div class="form_field">
                                     <label for="motivo_mensaje">Motivo del mensaje</label>
-                                    <select id="motivo_mensaje" name="motivo_mensaje" required>
+                                    <select id="motivo_mensaje" name="motivo_mensaje" required
+                                        aria-describedby="error_motivo_mensaje">
                                         <option value="">-- Selecciona una opción --</option>
                                         <option value="oferta_laboral">Oferta laboral</option>
                                         <option value="proyecto_colaborativo">Proyecto colaborativo</option>
                                         <option value="consulta_academica">Consulta académica</option>
                                         <option value="otro">Otro</option>
                                     </select>
+                                    <span class="field_error" id="error_motivo_mensaje" role="alert"></span>
                                 </div>
 
                                 <div class="form_field">
                                     <label for="asunto_mensaje">Asunto</label>
                                     <input type="text" id="asunto_mensaje" name="asunto_mensaje"
-                                        placeholder="Asunto del mensaje" maxlength="80" required>
+                                        placeholder="Asunto del mensaje" maxlength="80" required
+                                        aria-describedby="error_asunto_mensaje">
+                                    <span class="field_error" id="error_asunto_mensaje" role="alert"></span>
                                 </div>
 
                                 <div class="form_field full">
                                     <label for="mensaje_texto">Mensaje</label>
                                     <textarea id="mensaje_texto" name="mensaje_texto" rows="5"
                                         minlength="10" maxlength="500"
-                                        placeholder="Escribe aquí tu mensaje..." required></textarea>
+                                        placeholder="Escribe aquí tu mensaje..." required
+                                        aria-describedby="error_mensaje_texto"></textarea>
+                                    <span class="field_error" id="error_mensaje_texto" role="alert"></span>
                                 </div>
                             </div>
                         </fieldset>
@@ -473,6 +487,8 @@
                             <button type="submit" class="btn">Enviar mensaje</button>
                             <button type="reset" class="btn btn_ghost">Limpiar formulario</button>
                         </div>
+
+                        <p class="form_status" id="form_status" role="status" aria-live="polite"></p>
                     </form>
                 </div>
             </div>
