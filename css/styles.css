@@ -6,8 +6,10 @@
    coherente con el perfil del estudiante (Ing. de Sistemas,
    ensamblaje de PC, bases de datos, algoritmos).
 
+   Nomenclatura: snake_case en clases e identificadores.
+
    Índice:
-   1. Tokens (variables de diseño)
+   1. Tokens (variables de diseño) + tema oscuro
    2. Tipografía y base
    3. Utilidades (accesibilidad, layout genérico)
    4. Encabezado (Flexbox)
@@ -20,51 +22,72 @@
    11. Habilidades (CSS Grid)
    12. Idiomas (tabla)
    13. Multimedia (Flexbox)
-   14. Contacto (CSS Grid + formulario)
-   15. Pie de página
-   16. Media queries (responsive)
+   14. Enlaces profesionales (Flexbox)
+   15. Contacto (CSS Grid + formulario)
+   16. Pie de página
+   17. Media queries (responsive)
    ============================================================ */
 
 /* ---------- 1. Tokens ---------- */
 :root {
-  /* Color: paleta "papel técnico" */
-  --paper: #eef1f5;
-  --panel: #ffffff;
-  --ink: #16324f;
-  --ink-soft: #45596c;
-  --copper: #bf6f2e;
-  --copper-dark: #96551f;
-  --copper-tint: #f7e9dc;
-  --teal: #2f7f74;
-  --teal-tint: #e2f1ee;
-  --line: #c9d3db;
+  /* Color: paleta "papel técnico" (tema claro, por defecto) */
+  --color_paper: #eef1f5;
+  --color_panel: #ffffff;
+  --color_ink: #16324f;
+  --color_ink_soft: #45596c;
+  --color_copper: #bf6f2e;
+  --color_copper_dark: #96551f;
+  --color_copper_tint: #f7e9dc;
+  --color_teal: #2f7f74;
+  --color_teal_tint: #e2f1ee;
+  --color_line: #c9d3db;
 
   /* Tipografía */
-  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
-  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", "Consolas", "Courier New", monospace;
+  --font_display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font_body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font_mono: "IBM Plex Mono", "Consolas", "Courier New", monospace;
 
   /* Layout */
-  --content-width: 76rem;
+  --content_width: 76rem;
   --radius: 3px;
   --gap: 1.5rem;
+
+  color-scheme: light;
+}
+
+/* Tema oscuro: se activa con [data-theme="dark"] en <html>,
+   controlado desde js/script.js (alterna y guarda en localStorage). */
+:root[data-theme="dark"] {
+  --color_paper: #0f1720;
+  --color_panel: #16212c;
+  --color_ink: #e7edf3;
+  --color_ink_soft: #a9bac9;
+  --color_copper: #e2953f;
+  --color_copper_dark: #f0b46e;
+  --color_copper_tint: #2c2015;
+  --color_teal: #57c9b7;
+  --color_teal_tint: #142a28;
+  --color_line: #2b3947;
+
+  color-scheme: dark;
 }
 
 /* ---------- 2. Tipografía y base ---------- */
 body {
-  font-family: var(--font-body);
-  color: var(--ink);
-  background-color: var(--paper);
+  font-family: var(--font_body);
+  color: var(--color_ink);
+  background-color: var(--color_paper);
   background-image:
-    repeating-linear-gradient(0deg, rgba(22, 50, 79, 0.05) 0 1px, transparent 1px 88px),
-    repeating-linear-gradient(90deg, rgba(22, 50, 79, 0.05) 0 1px, transparent 1px 88px);
+    repeating-linear-gradient(0deg, rgba(127, 140, 153, 0.09) 0 1px, transparent 1px 88px),
+    repeating-linear-gradient(90deg, rgba(127, 140, 153, 0.09) 0 1px, transparent 1px 88px);
   line-height: 1.6;
   font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 h1, h2, h3 {
-  font-family: var(--font-display);
-  color: var(--ink);
+  font-family: var(--font_display);
+  color: var(--color_ink);
   line-height: 1.2;
   font-weight: 600;
 }
@@ -76,11 +99,11 @@ h3 { font-size: 1.05rem; }
 p { max-width: 68ch; }
 
 a {
-  color: var(--copper-dark);
+  color: var(--color_copper_dark);
   border-bottom: 1px solid currentColor;
 }
 
-a:hover { color: var(--ink); }
+a:hover { color: var(--color_ink); }
 
 a:focus-visible,
 button:focus-visible,
@@ -88,117 +111,146 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 summary:focus-visible {
-  outline: 2px solid var(--copper);
+  outline: 2px solid var(--color_copper);
   outline-offset: 3px;
 }
 
-small { color: var(--ink-soft); }
+small { color: var(--color_ink_soft); }
 
 /* ---------- 3. Utilidades ---------- */
-.skip-link {
+.skip_link {
   position: absolute;
   left: -999px;
   top: auto;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--color_ink);
+  color: var(--color_paper);
   padding: 0.75rem 1.25rem;
   z-index: 100;
   border-radius: 0 0 var(--radius) 0;
 }
 
-.skip-link:focus {
+.skip_link:focus {
   left: 0;
   top: 0;
 }
 
 .wrap {
-  max-width: var(--content-width);
+  max-width: var(--content_width);
   margin-inline: auto;
   padding-inline: clamp(1.25rem, 4vw, 2.5rem);
 }
 
 .section {
   padding-block: clamp(2.5rem, 5vw, 4rem);
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--color_line);
 }
 
 .section:nth-of-type(odd) {
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: color-mix(in srgb, var(--color_panel) 45%, transparent);
 }
 
-.section-heading {
+.section_heading {
   display: flex;
   align-items: baseline;
   gap: 0.85rem;
   margin-bottom: 1.5rem;
 }
 
-.section-num {
-  font-family: var(--font-mono);
-  color: var(--copper);
+.section_num {
+  font-family: var(--font_mono);
+  color: var(--color_copper);
   font-size: 0.95rem;
-  border: 1px solid var(--copper);
+  border: 1px solid var(--color_copper);
   padding: 0.1rem 0.5rem;
   border-radius: var(--radius);
 }
 
 .lede {
-  color: var(--ink-soft);
+  color: var(--color_ink_soft);
   margin-top: -0.75rem;
   margin-bottom: 1.75rem;
   max-width: 60ch;
 }
 
 /* ---------- 4. Encabezado (Flexbox) ---------- */
-.site-header {
-  background-color: var(--panel);
-  border-bottom: 3px double var(--ink);
+.site_header {
+  background-color: var(--color_panel);
+  border-bottom: 3px double var(--color_ink);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.header-bar {
-  /* Flexbox: fila superior con referencia de documento + acción de descarga */
+.header_bar {
+  /* Flexbox: fila superior con referencia de documento + acciones */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 0.75rem;
   padding-block: 0.9rem;
-  font-family: var(--font-mono);
+  font-family: var(--font_mono);
   font-size: 0.85rem;
-  color: var(--ink-soft);
-  border-bottom: 1px solid var(--line);
+  color: var(--color_ink_soft);
+  border-bottom: 1px solid var(--color_line);
 }
 
-.doc-ref span {
-  color: var(--copper);
+.header_actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.doc_ref span {
+  color: var(--color_copper);
 }
 
 .btn {
   display: inline-block;
-  font-family: var(--font-body);
+  font-family: var(--font_body);
   font-weight: 600;
-  background-color: var(--ink);
-  color: var(--paper);
+  background-color: var(--color_ink);
+  color: var(--color_paper);
   padding: 0.55rem 1.1rem;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--color_ink);
   border-radius: var(--radius);
-  border-bottom: 1px solid var(--ink);
 }
 
 .btn:hover {
-  background-color: var(--copper-dark);
-  border-color: var(--copper-dark);
-  color: var(--paper);
+  background-color: var(--color_copper_dark);
+  border-color: var(--color_copper_dark);
+  color: var(--color_paper);
 }
 
-.btn-ghost {
+.btn_ghost {
   background: transparent;
-  color: var(--ink);
+  color: var(--color_ink);
 }
 
-.btn-ghost:hover {
-  background-color: var(--copper-tint);
-  color: var(--ink);
+.btn_ghost:hover {
+  background-color: var(--color_copper_tint);
+  color: var(--color_ink);
+}
+
+.theme_toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font_mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color_ink);
+  background-color: var(--color_paper);
+  border: 1px solid var(--color_line);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.85rem;
+}
+
+.theme_toggle:hover {
+  border-color: var(--color_copper);
+}
+
+.theme_toggle_icon {
+  font-family: var(--font_mono);
 }
 
 .hero {
@@ -209,50 +261,50 @@ small { color: var(--ink-soft); }
   padding-block: clamp(2rem, 5vw, 3.5rem);
 }
 
-.hero-photo {
+.hero_photo {
   position: relative;
   flex: 0 0 auto;
   padding: 10px;
 }
 
-.hero-photo::before,
-.hero-photo::after,
-.hero-photo span::before,
-.hero-photo span::after {
+.hero_photo::before,
+.hero_photo::after,
+.hero_photo span::before,
+.hero_photo span::after {
   content: "";
   position: absolute;
   width: 18px;
   height: 18px;
-  border-color: var(--copper);
+  border-color: var(--color_copper);
   border-style: solid;
 }
 
-.hero-photo::before { top: 0; left: 0; border-width: 2px 0 0 2px; }
-.hero-photo::after { top: 0; right: 0; border-width: 2px 2px 0 0; }
-.hero-photo span::before { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
-.hero-photo span::after { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+.hero_photo::before { top: 0; left: 0; border-width: 2px 0 0 2px; }
+.hero_photo::after { top: 0; right: 0; border-width: 2px 2px 0 0; }
+.hero_photo span::before { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+.hero_photo span::after { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
 
-.hero-photo img {
+.hero_photo img {
   width: 168px;
   height: 168px;
   object-fit: cover;
-  border: 1px solid var(--line);
+  border: 1px solid var(--color_line);
 }
 
-.hero-text .role {
-  font-family: var(--font-mono);
-  color: var(--copper-dark);
+.hero_text .role {
+  font-family: var(--font_mono);
+  color: var(--color_copper_dark);
   margin-top: 0.4rem;
   font-size: 0.95rem;
 }
 
-.hero-text .tagline {
+.hero_text .tagline {
   margin-top: 0.9rem;
-  color: var(--ink-soft);
+  color: var(--color_ink_soft);
   max-width: 56ch;
 }
 
-.quick-facts {
+.quick_facts {
   /* Flexbox: lista de datos de contacto en fila */
   display: flex;
   flex-wrap: wrap;
@@ -261,15 +313,15 @@ small { color: var(--ink-soft); }
   font-size: 0.92rem;
 }
 
-.quick-facts li {
-  border-left: 2px solid var(--line);
+.quick_facts li {
+  border-left: 2px solid var(--color_line);
   padding-left: 0.6rem;
 }
 
 /* ---------- 5. Índice / navegación (Flexbox) ---------- */
-.site-nav {
-  border-top: 1px solid var(--line);
-  background-color: var(--copper-tint);
+.site_nav {
+  border-top: 1px solid var(--color_line);
+  background-color: var(--color_copper_tint);
 }
 
 .toc {
@@ -282,7 +334,7 @@ small { color: var(--ink-soft); }
 
 .toc li {
   counter-increment: toc;
-  border-right: 1px solid var(--line);
+  border-right: 1px solid var(--color_line);
 }
 
 .toc li:last-child { border-right: none; }
@@ -299,21 +351,21 @@ small { color: var(--ink-soft); }
 
 .toc a::before {
   content: counter(toc, decimal-leading-zero);
-  font-family: var(--font-mono);
-  color: var(--copper);
+  font-family: var(--font_mono);
+  color: var(--color_copper);
   font-size: 0.8rem;
 }
 
 .toc a:hover {
-  background-color: var(--panel);
-  color: var(--ink);
+  background-color: var(--color_panel);
+  color: var(--color_ink);
 }
 
 /* ---------- 7. Perfil ---------- */
 .note {
   margin-top: 1.5rem;
-  border-left: 3px solid var(--teal);
-  background-color: var(--teal-tint);
+  border-left: 3px solid var(--color_teal);
+  background-color: var(--color_teal_tint);
   padding: 1rem 1.25rem;
   border-radius: 0 var(--radius) var(--radius) 0;
 }
@@ -323,7 +375,7 @@ small { color: var(--ink-soft); }
   margin-bottom: 0.35rem;
 }
 
-.progress-row {
+.progress_row {
   display: flex;
   align-items: center;
   gap: 0.9rem;
@@ -334,7 +386,7 @@ small { color: var(--ink-soft); }
 progress {
   width: min(320px, 100%);
   height: 10px;
-  accent-color: var(--copper);
+  accent-color: var(--color_copper);
 }
 
 /* ---------- 8. Educación (CSS Grid) ---------- */
@@ -346,15 +398,15 @@ progress {
 }
 
 .timeline time {
-  font-family: var(--font-mono);
-  color: var(--copper-dark);
+  font-family: var(--font_mono);
+  color: var(--color_copper_dark);
   font-size: 0.9rem;
   padding-top: 0.2rem;
 }
 
 .timeline article {
   padding-bottom: 1.75rem;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--color_line);
   margin-bottom: 0.25rem;
 }
 
@@ -364,200 +416,200 @@ progress {
   padding-bottom: 0;
 }
 
-.course-tags {
+.course_tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 0.85rem;
 }
 
-.course-tags li {
+.course_tags li {
   font-size: 0.82rem;
-  font-family: var(--font-mono);
-  border: 1px solid var(--line);
+  font-family: var(--font_mono);
+  border: 1px solid var(--color_line);
   padding: 0.2rem 0.55rem;
   border-radius: var(--radius);
-  color: var(--ink-soft);
+  color: var(--color_ink_soft);
 }
 
 /* ---------- 9. Proyectos (CSS Grid) ---------- */
-.project-grid {
+.project_grid {
   /* CSS Grid: tarjetas de proyecto que se ajustan al ancho disponible */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--gap);
 }
 
-.project-card {
-  background-color: var(--panel);
-  border: 1px solid var(--line);
+.project_card {
+  background-color: var(--color_panel);
+  border: 1px solid var(--color_line);
   padding: 1.5rem;
   position: relative;
 }
 
-.project-card::before {
+.project_card::before {
   content: "";
   position: absolute;
   top: -1px;
   left: -1px;
   width: 14px;
   height: 14px;
-  border-top: 2px solid var(--copper);
-  border-left: 2px solid var(--copper);
+  border-top: 2px solid var(--color_copper);
+  border-left: 2px solid var(--color_copper);
 }
 
-.project-card .meta {
-  font-family: var(--font-mono);
+.project_card .meta {
+  font-family: var(--font_mono);
   font-size: 0.82rem;
-  color: var(--copper-dark);
+  color: var(--color_copper_dark);
   display: block;
   margin-bottom: 0.5rem;
 }
 
-.project-card p {
+.project_card p {
   font-size: 0.95rem;
-  color: var(--ink-soft);
+  color: var(--color_ink_soft);
 }
 
-.project-card details {
+.project_card details {
   margin-top: 0.9rem;
   font-size: 0.9rem;
 }
 
-.project-card summary {
+.project_card summary {
   cursor: pointer;
-  color: var(--ink);
+  color: var(--color_ink);
   font-weight: 600;
 }
 
-.project-card details p {
+.project_card details p {
   margin-top: 0.6rem;
 }
 
 /* ---------- 10. Certificaciones (Flexbox) ---------- */
-.cert-list {
+.cert_list {
   /* Flexbox: insignias que fluyen y se ajustan */
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
 }
 
-.cert-list > li {
+.cert_list > li {
   flex: 1 1 260px;
-  background-color: var(--panel);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--copper);
+  background-color: var(--color_panel);
+  border: 1px solid var(--color_line);
+  border-left: 3px solid var(--color_copper);
   padding: 0.9rem 1.1rem;
 }
 
-.cert-list strong {
+.cert_list strong {
   display: block;
   margin-bottom: 0.2rem;
 }
 
-.badge-list {
+.badge_list {
   margin-top: 0.6rem;
   font-size: 0.85rem;
 }
 
-.badge-list ul {
+.badge_list ul {
   margin-top: 0.4rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
 }
 
-.badge-list li {
-  background-color: var(--teal-tint);
-  border: 1px solid var(--teal);
-  color: var(--ink);
+.badge_list li {
+  background-color: var(--color_teal_tint);
+  border: 1px solid var(--color_teal);
+  color: var(--color_ink);
   padding: 0.15rem 0.5rem;
   border-radius: var(--radius);
   font-size: 0.78rem;
 }
 
 /* ---------- 11. Habilidades (CSS Grid) ---------- */
-.skills-grid {
+.skills_grid {
   /* CSS Grid: categorías de habilidades en columnas */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--gap);
 }
 
-.skills-grid > article {
-  background-color: var(--panel);
-  border: 1px solid var(--line);
+.skills_grid > article {
+  background-color: var(--color_panel);
+  border: 1px solid var(--color_line);
   padding: 1.4rem;
 }
 
-.skill-bars li {
+.skill_bars li {
   margin-top: 1rem;
 }
 
-.skill-bars li:first-child { margin-top: 0; }
+.skill_bars li:first-child { margin-top: 0; }
 
-.skill-bars .skill-label {
+.skill_bars .skill_label {
   display: flex;
   justify-content: space-between;
   font-size: 0.9rem;
   margin-bottom: 0.35rem;
 }
 
-.skill-bars .skill-label span:last-child {
-  font-family: var(--font-mono);
-  color: var(--copper-dark);
+.skill_bars .skill_label span:last-child {
+  font-family: var(--font_mono);
+  color: var(--color_copper_dark);
 }
 
 meter {
   width: 100%;
   height: 9px;
-  accent-color: var(--teal);
+  accent-color: var(--color_teal);
 }
 
-.chip-list {
+.chip_list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.chip-list li {
-  background-color: var(--copper-tint);
-  border: 1px solid var(--copper);
-  color: var(--ink);
+.chip_list li {
+  background-color: var(--color_copper_tint);
+  border: 1px solid var(--color_copper);
+  color: var(--color_ink);
   font-size: 0.85rem;
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius);
 }
 
 /* ---------- 12. Idiomas ---------- */
-.table-wrap {
+.table_wrap {
   overflow-x: auto;
-  border: 1px solid var(--line);
+  border: 1px solid var(--color_line);
 }
 
 table {
-  background-color: var(--panel);
+  background-color: var(--color_panel);
   font-size: 0.95rem;
 }
 
 caption {
   text-align: left;
-  font-family: var(--font-mono);
+  font-family: var(--font_mono);
   font-size: 0.85rem;
-  color: var(--ink-soft);
+  color: var(--color_ink_soft);
   padding: 0.75rem 1rem 0;
 }
 
 th, td {
   padding: 0.75rem 1rem;
   text-align: left;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--color_line);
 }
 
 thead th {
-  background-color: var(--ink);
-  color: var(--paper);
-  font-family: var(--font-mono);
+  background-color: var(--color_ink);
+  color: var(--color_paper);
+  font-family: var(--font_mono);
   font-weight: 500;
   font-size: 0.85rem;
 }
@@ -572,37 +624,70 @@ tbody tr:last-child th {
 }
 
 /* ---------- 13. Multimedia (Flexbox) ---------- */
-.media-row {
+.media_row {
   /* Flexbox: tarjetas de audio y video lado a lado */
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap);
 }
 
-.media-row > article {
+.media_row > article {
   flex: 1 1 320px;
-  background-color: var(--panel);
-  border: 1px solid var(--line);
+  background-color: var(--color_panel);
+  border: 1px solid var(--color_line);
   padding: 1.4rem;
 }
 
-.media-row figure {
+.media_row figure {
   margin-top: 0.9rem;
 }
 
-.media-row figcaption {
+.media_row figcaption {
   margin-top: 0.6rem;
   font-size: 0.85rem;
-  color: var(--ink-soft);
+  color: var(--color_ink_soft);
 }
 
 video {
   width: 100%;
-  border: 1px solid var(--line);
+  border: 1px solid var(--color_line);
 }
 
-/* ---------- 14. Contacto (CSS Grid + formulario) ---------- */
-.contact-layout {
+/* ---------- 14. Enlaces profesionales (Flexbox) ---------- */
+.link_row {
+  /* Flexbox: enlaces profesionales en fila */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.link_row a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color_line);
+  background-color: var(--color_panel);
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.92rem;
+}
+
+.link_row a:hover {
+  border-color: var(--color_copper);
+  color: var(--color_ink);
+}
+
+.link_row .link_tag {
+  font-family: var(--font_mono);
+  font-size: 0.75rem;
+  color: var(--color_copper_dark);
+  border: 1px solid var(--color_copper);
+  padding: 0 0.3rem;
+  border-radius: var(--radius);
+}
+
+/* ---------- 15. Contacto (CSS Grid + formulario) ---------- */
+.contact_layout {
   /* CSS Grid: panel de datos + formulario */
   display: grid;
   grid-template-columns: minmax(220px, 0.85fr) 1.15fr;
@@ -610,24 +695,24 @@ video {
   align-items: start;
 }
 
-.contact-info address {
+.contact_info address {
   font-style: normal;
   line-height: 1.9;
 }
 
-.contact-info details {
+.contact_info details {
   margin-top: 1.5rem;
-  border: 1px solid var(--line);
-  background-color: var(--panel);
+  border: 1px solid var(--color_line);
+  background-color: var(--color_panel);
   padding: 0.9rem 1.1rem;
 }
 
-.contact-info summary {
+.contact_info summary {
   font-weight: 600;
   cursor: pointer;
 }
 
-.contact-info details ul {
+.contact_info details ul {
   margin-top: 0.75rem;
   display: grid;
   gap: 0.35rem;
@@ -635,13 +720,13 @@ video {
 }
 
 form {
-  background-color: var(--panel);
-  border: 1px solid var(--line);
+  background-color: var(--color_panel);
+  border: 1px solid var(--color_line);
   padding: clamp(1.25rem, 3vw, 2rem);
 }
 
 fieldset {
-  border: 1px solid var(--line);
+  border: 1px solid var(--color_line);
   border-radius: var(--radius);
   padding: 1.1rem 1.25rem 1.4rem;
   margin: 0 0 1.5rem;
@@ -650,13 +735,13 @@ fieldset {
 fieldset:last-of-type { margin-bottom: 1.5rem; }
 
 legend {
-  font-family: var(--font-display);
+  font-family: var(--font_display);
   font-weight: 600;
   padding: 0 0.5rem;
-  color: var(--ink);
+  color: var(--color_ink);
 }
 
-.form-grid {
+.form_grid {
   /* CSS Grid: pares etiqueta/campo alineados */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -664,72 +749,117 @@ legend {
   margin-top: 0.25rem;
 }
 
-.form-field {
+.form_field {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
 }
 
-.form-field.full {
+.form_field.full {
   grid-column: 1 / -1;
 }
 
 label {
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--ink-soft);
+  color: var(--color_ink_soft);
 }
 
 input, textarea, select {
-  border: 1px solid var(--line);
+  border: 1px solid var(--color_line);
   border-radius: var(--radius);
   padding: 0.55rem 0.7rem;
-  background-color: var(--paper);
+  background-color: var(--color_paper);
+  color: var(--color_ink);
 }
 
 textarea { resize: vertical; }
 
 input:invalid:not(:placeholder-shown),
 textarea:invalid:not(:placeholder-shown) {
-  border-color: var(--copper);
+  border-color: var(--color_copper);
 }
 
-.form-actions {
+/* Estados de validación aplicados por js/script.js */
+.form_field.is_invalid input,
+.form_field.is_invalid textarea,
+.form_field.is_invalid select {
+  border-color: #c0392b;
+  border-width: 2px;
+}
+
+.form_field.is_valid input,
+.form_field.is_valid textarea,
+.form_field.is_valid select {
+  border-color: var(--color_teal);
+}
+
+.field_error {
+  font-size: 0.8rem;
+  color: #c0392b;
+  min-height: 1em;
+}
+
+.form_status {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  display: none;
+}
+
+.form_status.is_visible {
+  display: block;
+}
+
+.form_status.success {
+  background-color: var(--color_teal_tint);
+  border: 1px solid var(--color_teal);
+  color: var(--color_ink);
+}
+
+.form_status.error {
+  background-color: #fbe9e7;
+  border: 1px solid #c0392b;
+  color: #7a2b20;
+}
+
+.form_actions {
   display: flex;
   gap: 0.75rem;
   margin-top: 0.5rem;
   flex-wrap: wrap;
 }
 
-/* ---------- 15. Pie de página ---------- */
-.site-footer {
-  border-top: 3px double var(--ink);
-  background-color: var(--panel);
+/* ---------- 16. Pie de página ---------- */
+.site_footer {
+  border-top: 3px double var(--color_ink);
+  background-color: var(--color_panel);
 }
 
-.title-block {
+.title_block {
   /* Flexbox: bloque de rotulación tipo plano técnico */
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.75rem 2rem;
   padding-block: 1.25rem;
-  font-family: var(--font-mono);
+  font-family: var(--font_mono);
   font-size: 0.82rem;
-  color: var(--ink-soft);
+  color: var(--color_ink_soft);
 }
 
-.title-block strong {
-  color: var(--ink);
+.title_block strong {
+  color: var(--color_ink);
 }
 
-/* ---------- 16. Responsive ---------- */
+/* ---------- 17. Responsive ---------- */
 @media (max-width: 860px) {
-  .skills-grid {
+  .skills_grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .contact-layout {
+  .contact_layout {
     grid-template-columns: 1fr;
   }
 }
@@ -743,7 +873,7 @@ textarea:invalid:not(:placeholder-shown) {
 
   .toc li {
     border-right: none;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--color_line);
   }
 
   .toc,
@@ -763,22 +893,22 @@ textarea:invalid:not(:placeholder-shown) {
     padding-top: 0;
   }
 
-  .skills-grid {
+  .skills_grid {
     grid-template-columns: 1fr;
   }
 
-  .form-grid {
+  .form_grid {
     grid-template-columns: 1fr;
   }
 
-  .form-field.full { grid-column: auto; }
+  .form_field.full { grid-column: auto; }
 
-  .title-block {
+  .title_block {
     flex-direction: column;
   }
 }
 
 @media print {
-  .site-nav, .btn, .form-actions { display: none; }
+  .site_nav, .btn, .form_actions, .theme_toggle { display: none; }
   body { background-image: none; }
 }
