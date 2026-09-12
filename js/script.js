@@ -11,8 +11,20 @@
    ============================================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
-    inicializar_selector_de_tema();
-    inicializar_validacion_de_formulario();
+    /* Cada inicializador va en su propio try/catch: si uno falla,
+       el otro debe seguir funcionando (por ejemplo, que un error
+       en el selector de tema no deje sin validación al formulario). */
+    try {
+        inicializar_selector_de_tema();
+    } catch (error) {
+        console.error("Error al inicializar el selector de tema:", error);
+    }
+
+    try {
+        inicializar_validacion_de_formulario();
+    } catch (error) {
+        console.error("Error al inicializar la validación del formulario:", error);
+    }
 });
 
 /* ------------------------------------------------------------
