@@ -806,7 +806,6 @@ textarea:invalid:not(:placeholder-shown) {
 }
 
 .title_block {
-  /* Flexbox: bloque de rotulación tipo plano técnico */
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

@@ -1,1 +1,5 @@
+//Enlace al repositorio de GitHub
 https://github.com/TheLightZen/hoja-vida
+
+//Enlace de Github Pages
+https://thelightzen.github.io/hoja-vida/

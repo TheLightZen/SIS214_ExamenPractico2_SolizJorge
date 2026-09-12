@@ -1,5 +1,3 @@
-// Modo claro / oscuro
-
 var temaGuardado = localStorage.getItem("tema_preferido");
 if (temaGuardado) {
     document.documentElement.setAttribute("data-theme", temaGuardado);
@@ -29,9 +27,6 @@ botonTema.addEventListener("click", function () {
         localStorage.setItem("tema_preferido", "dark");
     }
 });
-
-
-// Validacion del formulario de contacto
 
 var formulario = document.getElementById("formulario_contacto");
 
