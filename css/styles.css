@@ -1,36 +1,4 @@
-/* ============================================================
-   styles.css — Hoja de vida de Jorge Emanuel Soliz Luque
-   ------------------------------------------------------------
-   Concepto visual: "hoja de especificaciones técnicas" — la
-   estética de un plano de ingeniería / esquema de circuito,
-   coherente con el perfil del estudiante (Ing. de Sistemas,
-   ensamblaje de PC, bases de datos, algoritmos).
-
-   Nomenclatura: snake_case en clases e identificadores.
-
-   Índice:
-   1. Tokens (variables de diseño) + tema oscuro
-   2. Tipografía y base
-   3. Utilidades (accesibilidad, layout genérico)
-   4. Encabezado (Flexbox)
-   5. Índice / navegación (Flexbox)
-   6. Secciones y numeración
-   7. Perfil
-   8. Educación (CSS Grid)
-   9. Proyectos (CSS Grid)
-   10. Certificaciones (Flexbox)
-   11. Habilidades (CSS Grid)
-   12. Idiomas (tabla)
-   13. Multimedia (Flexbox)
-   14. Enlaces profesionales (Flexbox)
-   15. Contacto (CSS Grid + formulario)
-   16. Pie de página
-   17. Media queries (responsive)
-   ============================================================ */
-
-/* ---------- 1. Tokens ---------- */
 :root {
-  /* Color: paleta "papel técnico" (tema claro, por defecto) */
   --color_paper: #eef1f5;
   --color_panel: #ffffff;
   --color_ink: #16324f;
@@ -42,18 +10,13 @@
   --color_teal_tint: #e2f1ee;
   --color_line: #c9d3db;
 
-  /* Tokens de "barra sólida" (encabezados de tabla, título, etc.):
-     se definen aparte de ink/paper para no invertirse en el tema
-     oscuro (evita bloques blancos sobre fondo oscuro). */
   --color_bar_bg: #16324f;
   --color_bar_text: #eef1f5;
 
-  /* Tipografía */
   --font_display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
   --font_body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
   --font_mono: "IBM Plex Mono", "Consolas", "Courier New", monospace;
 
-  /* Layout */
   --content_width: 76rem;
   --radius: 3px;
   --gap: 1.5rem;
@@ -61,8 +24,6 @@
   color-scheme: light;
 }
 
-/* Tema oscuro: se activa con [data-theme="dark"] en <html>,
-   controlado desde js/script.js (alterna y guarda en localStorage). */
 :root[data-theme="dark"] {
   --color_paper: #0f1720;
   --color_panel: #16212c;
@@ -75,16 +36,12 @@
   --color_teal_tint: #142a28;
   --color_line: #2b3947;
 
-  /* En oscuro, la "barra sólida" pasa a un tono marino más oscuro
-     que los paneles, para seguir leyéndose como una barra propia
-     en vez de invertirse a blanco. */
   --color_bar_bg: #0a141d;
   --color_bar_text: #e7edf3;
 
   color-scheme: dark;
 }
 
-/* ---------- 2. Tipografía y base ---------- */
 body {
   font-family: var(--font_body);
   color: var(--color_ink);
@@ -129,7 +86,6 @@ summary:focus-visible {
 
 small { color: var(--color_ink_soft); }
 
-/* ---------- 3. Utilidades ---------- */
 .skip_link {
   position: absolute;
   left: -999px;
@@ -196,7 +152,6 @@ small { color: var(--color_ink_soft); }
   max-width: 60ch;
 }
 
-/* ---------- 4. Encabezado (Flexbox) ---------- */
 .site_header {
   background-color: var(--color_panel);
   border-bottom: 3px double var(--color_ink);
@@ -204,7 +159,6 @@ small { color: var(--color_ink_soft); }
 }
 
 .header_bar {
-  /* Flexbox: fila superior con referencia de documento + acciones */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -245,9 +199,6 @@ small { color: var(--color_ink_soft); }
   color: var(--color_paper);
 }
 
-/* En modo oscuro, un botón sólido en tono "ink" quedaría casi
-   blanco (por la inversión de esa variable), así que el botón
-   principal pasa a usar el acento cobre en su lugar. */
 :root[data-theme="dark"] .btn {
   background-color: var(--color_copper);
   border-color: var(--color_copper);
@@ -344,7 +295,6 @@ small { color: var(--color_ink_soft); }
 }
 
 .quick_facts {
-  /* Flexbox: lista de datos de contacto en fila */
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.5rem;
@@ -357,14 +307,12 @@ small { color: var(--color_ink_soft); }
   padding-left: 0.6rem;
 }
 
-/* ---------- 5. Índice / navegación (Flexbox) ---------- */
 .site_nav {
   border-top: 1px solid var(--color_line);
   background-color: var(--color_copper_tint);
 }
 
 .toc {
-  /* Flexbox: índice de secciones en fila, con salto de línea */
   display: flex;
   flex-wrap: wrap;
   gap: 0;
@@ -400,7 +348,6 @@ small { color: var(--color_ink_soft); }
   color: var(--color_ink);
 }
 
-/* ---------- 7. Perfil ---------- */
 .note {
   margin-top: 1.5rem;
   border-left: 3px solid var(--color_teal);
@@ -428,9 +375,7 @@ progress {
   accent-color: var(--color_copper);
 }
 
-/* ---------- 8. Educación (CSS Grid) ---------- */
 .timeline {
-  /* CSS Grid: columna de fecha + columna de contenido */
   display: grid;
   grid-template-columns: 9rem 1fr;
   gap: 0.5rem 1.75rem;
@@ -471,9 +416,7 @@ progress {
   color: var(--color_ink_soft);
 }
 
-/* ---------- 9. Proyectos (CSS Grid) ---------- */
 .project_grid {
-  /* CSS Grid: tarjetas de proyecto que se ajustan al ancho disponible */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--gap);
@@ -525,9 +468,7 @@ progress {
   margin-top: 0.6rem;
 }
 
-/* ---------- 10. Certificaciones (Flexbox) ---------- */
 .cert_list {
-  /* Flexbox: insignias que fluyen y se ajustan */
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
@@ -567,9 +508,7 @@ progress {
   font-size: 0.78rem;
 }
 
-/* ---------- 11. Habilidades (CSS Grid) ---------- */
 .skills_grid {
-  /* CSS Grid: categorías de habilidades en columnas */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--gap);
@@ -620,7 +559,6 @@ meter {
   border-radius: var(--radius);
 }
 
-/* ---------- 12. Idiomas ---------- */
 .table_wrap {
   overflow-x: auto;
   border: 1px solid var(--color_line);
@@ -662,9 +600,7 @@ tbody tr:last-child th {
   border-bottom: none;
 }
 
-/* ---------- 13. Multimedia (Flexbox) ---------- */
 .media_row {
-  /* Flexbox: tarjetas de audio y video lado a lado */
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap);
@@ -692,9 +628,7 @@ video {
   border: 1px solid var(--color_line);
 }
 
-/* ---------- 14. Enlaces profesionales (Flexbox) ---------- */
 .link_row {
-  /* Flexbox: enlaces profesionales en fila */
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
@@ -725,9 +659,7 @@ video {
   border-radius: var(--radius);
 }
 
-/* ---------- 15. Contacto (CSS Grid + formulario) ---------- */
 .contact_layout {
-  /* CSS Grid: panel de datos + formulario */
   display: grid;
   grid-template-columns: minmax(220px, 0.85fr) 1.15fr;
   gap: clamp(1.5rem, 4vw, 3rem);
@@ -781,7 +713,6 @@ legend {
 }
 
 .form_grid {
-  /* CSS Grid: pares etiqueta/campo alineados */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem 1.25rem;
@@ -819,7 +750,6 @@ textarea:invalid:not(:placeholder-shown) {
   border-color: var(--color_copper);
 }
 
-/* Estados de validación aplicados por js/script.js */
 .form_field.is_invalid input,
 .form_field.is_invalid textarea,
 .form_field.is_invalid select {
@@ -870,7 +800,6 @@ textarea:invalid:not(:placeholder-shown) {
   flex-wrap: wrap;
 }
 
-/* ---------- 16. Pie de página ---------- */
 .site_footer {
   border-top: 3px double var(--color_ink);
   background-color: var(--color_panel);
@@ -892,7 +821,6 @@ textarea:invalid:not(:placeholder-shown) {
   color: var(--color_ink);
 }
 
-/* ---------- 17. Responsive ---------- */
 @media (max-width: 860px) {
   .skills_grid {
     grid-template-columns: repeat(2, 1fr);

@@ -11,16 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
-    <script>
-        /* Aplica el tema guardado antes de pintar la página, para
-           evitar el parpadeo de un tema incorrecto al cargar. */
-        (function aplicar_tema_inicial() {
-            var tema_guardado = localStorage.getItem("tema_preferido");
-            var prefiere_oscuro = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            var tema = tema_guardado || (prefiere_oscuro ? "dark" : "light");
-            document.documentElement.setAttribute("data-theme", tema);
-        })();
-    </script>
 </head>
 <body>
 
@@ -146,13 +136,13 @@
                 <div class="project_grid">
                     <article class="project_card">
                         <span class="meta">Programación II · Marzo 2026 · 90/100</span>
-                        <h3>Sistema de Gimnasio en Java</h3>
+                        <h3>Sistema de Cine en Java</h3>
                         <p>Framework de gestión de gimnasios aplicando programación orientada a objetos.</p>
                         <details>
                             <summary>Ver detalles</summary>
                             <p>
                                 Framework polimórfico con control de membresías, registro de clientes,
-                                horarios de clases y reportes básicos, aplicando herencia y encapsulamiento.
+                                horarios de funciones y reportes básicos, aplicando herencia y encapsulamiento.
                             </p>
                         </details>
                     </article>
@@ -171,25 +161,23 @@
                     </article>
 
                     <article class="project_card">
-                        <span class="meta">Metodología de la Investigación · Abril 2026</span>
-                        <h3>Modelo estadístico de ruta y seguridad de traslado</h3>
+                        <span class="meta">Metodología de la Investigación · Mayo 2026</span>
+                        <h3>Propuesta de paper para reducir el desperdicio de agua en La Paz</h3>
                         <p>
-                            Modelo con intervalos de confianza del 90% para analizar la seguridad de la
-                            ruta diaria a la universidad en un Suzuki Jimny.
+                            Propuesta de tesis para reducir el porcentaje de desperdicio de agua en la ciudad de La Paz.
                         </p>
                     </article>
 
                     <article class="project_card">
-                        <span class="meta">Física Mecánica · Abril 2026</span>
-                        <h3>Informe de laboratorio: centro de masa</h3>
+                        <span class="meta">Programacion I · Octubre 2025</span>
+                        <h3>Sistema de Bancos (depositos y retiros)</h3>
                         <p>
-                            Informe con modelos de integración multivariable de masa y densidad lineal para
-                            calcular el centro de masa de una barra continua.
+                            Implementación de un sistema de gestión bancaria con funcionalidades básicas de depósito y retiro.
                         </p>
                     </article>
 
                     <article class="project_card">
-                        <span class="meta">Enero 2026</span>
+                        <span class="meta">Septiembre 2025</span>
                         <h3>Depuración de código Assembly (NASM x86, 32 bits)</h3>
                         <p>Identificación y corrección de errores en bloques de código Assembly de 32 bits.</p>
                     </article>
@@ -366,12 +354,12 @@
                         <h3>Video de proyecto</h3>
                         <figure>
                             <video controls>
-                                <source src="assets/video/demo-sistema-gimnasio.mp4" type="video/mp4">
-                                <track kind="captions" src="assets/video/demo-sistema-gimnasio-es.vtt" srclang="es" label="Español">
+                                <source src="assets/video/demo-sistema-mercado.mp4" type="video/mp4">
+                                <track kind="captions" src="assets/video/demo-sistema-mercado-es.vtt" srclang="es" label="Español">
                                 Tu navegador no soporta el elemento de video.
-                                <a href="assets/video/demo-sistema-gimnasio.mp4">Descargar el video</a>
+                                <a href="assets/video/demo-sistema-mercado.mp4">Descargar el video</a>
                             </video>
-                            <figcaption>Demostración del Sistema de Gimnasio desarrollado en Java.</figcaption>
+                            <figcaption>Demostración del Sistema de Gestion de Mercados desarrollado en Base de Datos.</figcaption>
                         </figure>
                     </article>
                 </div>
@@ -432,7 +420,7 @@
                         </details>
                     </div>
 
-                    <form action="#" method="post" aria-labelledby="form_titulo" novalidate onsubmit="return false;">
+                    <form id="formulario_contacto" action="#" method="post" aria-labelledby="form_titulo" novalidate onsubmit="return false;">
                         <h3 id="form_titulo">Formulario de contacto</h3>
 
                         <fieldset>
