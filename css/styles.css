@@ -42,6 +42,12 @@
   --color_teal_tint: #e2f1ee;
   --color_line: #c9d3db;
 
+  /* Tokens de "barra sólida" (encabezados de tabla, título, etc.):
+     se definen aparte de ink/paper para no invertirse en el tema
+     oscuro (evita bloques blancos sobre fondo oscuro). */
+  --color_bar_bg: #16324f;
+  --color_bar_text: #eef1f5;
+
   /* Tipografía */
   --font_display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
   --font_body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
@@ -68,6 +74,12 @@
   --color_teal: #57c9b7;
   --color_teal_tint: #142a28;
   --color_line: #2b3947;
+
+  /* En oscuro, la "barra sólida" pasa a un tono marino más oscuro
+     que los paneles, para seguir leyéndose como una barra propia
+     en vez de invertirse a blanco. */
+  --color_bar_bg: #0a141d;
+  --color_bar_text: #e7edf3;
 
   color-scheme: dark;
 }
@@ -231,6 +243,21 @@ small { color: var(--color_ink_soft); }
   background-color: var(--color_copper_dark);
   border-color: var(--color_copper_dark);
   color: var(--color_paper);
+}
+
+/* En modo oscuro, un botón sólido en tono "ink" quedaría casi
+   blanco (por la inversión de esa variable), así que el botón
+   principal pasa a usar el acento cobre en su lugar. */
+:root[data-theme="dark"] .btn {
+  background-color: var(--color_copper);
+  border-color: var(--color_copper);
+  color: #1b1006;
+}
+
+:root[data-theme="dark"] .btn:hover {
+  background-color: var(--color_copper_dark);
+  border-color: var(--color_copper_dark);
+  color: #1b1006;
 }
 
 .btn_ghost {
@@ -619,8 +646,8 @@ th, td {
 }
 
 thead th {
-  background-color: var(--color_ink);
-  color: var(--color_paper);
+  background-color: var(--color_bar_bg);
+  color: var(--color_bar_text);
   font-family: var(--font_mono);
   font-weight: 500;
   font-size: 0.85rem;
