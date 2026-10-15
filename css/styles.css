@@ -34,6 +34,7 @@
   --spacing-lg: calc(var(--spacing-unit) * 2);
   --radius: 3px;
   --content-width: 76rem;
+  --gutter: max(calc(var(--spacing-unit) * 1.25), calc((100% - var(--content-width)) / 2));
 }
 
 /* ---------- Reset universal ---------- */
@@ -124,7 +125,7 @@ summary:focus-visible,
 .site_header,
 .site_footer,
 main > section {
-  padding-inline: max(calc(var(--spacing-unit) * 1.25), calc((100% - var(--content-width)) / 2));
+  padding-inline: var(--gutter);
 }
 
 main > section {
@@ -194,7 +195,8 @@ main > section:not(.hero) > h2::before {
   top: 0;
   z-index: 50;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   gap: var(--spacing-sm);
   padding-block: var(--spacing-sm);
   background-color: var(--surface-color);
@@ -212,10 +214,65 @@ main > section:not(.hero) > h2::before {
   border-bottom: none;
 }
 
+/* Boton hamburguesa (visible en movil y tablet) */
+.menu_toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.menu_toggle_bars,
+.menu_toggle_bars::before,
+.menu_toggle_bars::after {
+  display: block;
+  width: 1.3rem;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.menu_toggle_bars { position: relative; }
+.menu_toggle_bars::before,
+.menu_toggle_bars::after { content: ""; position: absolute; left: 0; }
+.menu_toggle_bars::before { top: -6px; }
+.menu_toggle_bars::after { top: 6px; }
+
+.menu_toggle[aria-expanded="true"] .menu_toggle_bars { background-color: transparent; }
+.menu_toggle[aria-expanded="true"] .menu_toggle_bars::before { transform: translateY(6px) rotate(45deg); }
+.menu_toggle[aria-expanded="true"] .menu_toggle_bars::after { transform: translateY(-6px) rotate(-45deg); }
+
+/* Menu desplegable: oculto por defecto, la clase is_open lo muestra */
+.site_nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  padding-inline: var(--gutter);
+  background-color: var(--surface-color);
+  visibility: hidden;
+  transition: grid-template-rows 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.site_nav.is_open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  border-bottom: 3px double var(--primary-color);
+  transition: grid-template-rows 0.3s ease, visibility 0s;
+}
+
 .site_nav ul {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 0.5rem;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
   counter-reset: enlace;
 }
 
@@ -225,7 +282,7 @@ main > section:not(.hero) > h2::before {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.4rem 0.6rem;
+  padding: 0.7rem 0.6rem;
   font-size: 0.9rem;
   color: var(--text-color);
   border-bottom: none;
@@ -650,13 +707,6 @@ textarea { resize: vertical; }
 @media (min-width: 768px) {
   h2 { font-size: 1.6rem; }
 
-  .site_header {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
-
   .hero {
     grid-template-columns: auto 1fr;
     column-gap: calc(var(--spacing-unit) * 2.5);
@@ -685,10 +735,38 @@ textarea { resize: vertical; }
   .site_footer { flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
 }
 
+/* Solo tablet: el menu desplegable se reparte en 3 columnas */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .site_nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* ==========================================================
    ESCRITORIO: mayor a 1024px
    ========================================================== */
 @media (min-width: 1025px) {
+  .menu_toggle { display: none; }
+
+  .site_nav {
+    position: static;
+    padding-inline: 0;
+    background: none;
+    visibility: visible;
+    grid-template-rows: 1fr;
+  }
+
+  .site_nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.15rem 0.25rem;
+    overflow: visible;
+  }
+
+  .site_nav a { padding: 0.4rem 0.55rem; font-size: 0.88rem; }
+
   .project_grid { grid-template-columns: repeat(3, 1fr); }
 
   #habilidades { grid-template-columns: repeat(3, 1fr); }

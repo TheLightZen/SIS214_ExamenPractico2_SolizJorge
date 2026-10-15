@@ -10,6 +10,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <noscript>
+        <style>
+            .site_nav { grid-template-rows: 1fr; visibility: visible; }
+            .menu_toggle { display: none; }
+        </style>
+    </noscript>
 </head>
 <body>
 
@@ -18,7 +24,12 @@
     <header class="site_header">
         <p class="brand"><a href="#inicio">Jorge Soliz</a></p>
 
-        <nav class="site_nav" aria-label="Navegación principal">
+        <button type="button" id="menu_toggle" class="menu_toggle"
+            aria-expanded="false" aria-controls="menu_principal" aria-label="Abrir menú de navegación">
+            <span class="menu_toggle_bars" aria-hidden="true"></span>
+        </button>
+
+        <nav id="menu_principal" class="site_nav" aria-label="Navegación principal">
             <ul>
                 <li><a href="#perfil">Perfil</a></li>
                 <li><a href="#educacion">Educación</a></li>
@@ -458,5 +469,6 @@
         <p><strong>Asignatura:</strong> SIS-214 Tecnologías Web I</p>
     </footer>
 
+    <script src="js/menu.js" defer></script>
 </body>
 </html>
