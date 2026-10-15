@@ -1,5 +1,5 @@
 //Enlace al repositorio de GitHub
-https://github.com/TheLightZen/hoja-vida
+https://github.com/TheLightZen/SIS214_ExamenPractico2_SolizJorge
 
-//Enlace de Github Pages
-https://thelightzen.github.io/hoja-vida/
+//Enlace de GitHub Pages
+https://thelightzen.github.io/SIS214_ExamenPractico2_SolizJorge/
