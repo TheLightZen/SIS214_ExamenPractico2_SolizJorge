@@ -340,7 +340,7 @@
                 </details>
             </aside>
 
-            <form id="formulario_contacto" class="contact_form" aria-labelledby="form_titulo">
+            <form id="formulario_contacto" class="contact_form" aria-labelledby="form_titulo" novalidate>
                 <h3 id="form_titulo">Formulario de contacto</h3>
 
                 <fieldset>
@@ -381,7 +381,9 @@
 
                     <p class="form_field">
                         <label for="fecha_contacto">Fecha preferida de contacto</label>
-                        <input type="date" id="fecha_contacto" name="fecha_contacto">
+                        <input type="date" id="fecha_contacto" name="fecha_contacto"
+                            aria-describedby="error_fecha_contacto">
+                        <span class="field_error" id="error_fecha_contacto"></span>
                     </p>
                 </fieldset>
 
@@ -423,6 +425,8 @@
                     <button type="submit" class="btn">Enviar mensaje</button>
                     <button type="reset" class="btn btn_ghost">Limpiar formulario</button>
                 </p>
+
+                <p id="estado_formulario" class="form_status" role="status" aria-live="polite" hidden></p>
             </form>
         </section>
 
@@ -438,5 +442,6 @@
     <script src="js/utilidades.js" defer></script>
     <script src="js/menu.js" defer></script>
     <script src="js/filtro.js" defer></script>
+    <script src="js/formulario.js" defer></script>
 </body>
 </html>

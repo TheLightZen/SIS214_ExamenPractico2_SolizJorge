@@ -31,6 +31,7 @@
   --error-color: #b3261e;
   --btn-bg: #16324f;
   --btn-text: #eef1f5;
+  --success-text: #1f6b5f;
 
   --spacing-sm: calc(var(--spacing-unit) / 2);
   --spacing-lg: calc(var(--spacing-unit) * 2);
@@ -58,6 +59,7 @@
   --error-color: #ff8a80;
   --btn-bg: #e2953f;
   --btn-text: #1b1006;
+  --success-text: #7fe0cf;
   color-scheme: dark;
 }
 
@@ -754,6 +756,45 @@ textarea { resize: vertical; }
   min-height: 1em;
   font-size: 0.8rem;
   color: var(--error-color);
+}
+
+/* Estados de validacion (los aplica js/formulario.js) */
+.form_field.is_invalid input,
+.form_field.is_invalid select,
+.form_field.is_invalid textarea {
+  border-color: var(--error-color);
+  box-shadow: inset 0 0 0 1px var(--error-color);
+}
+
+.form_field.is_valid input,
+.form_field.is_valid select,
+.form_field.is_valid textarea {
+  border-color: var(--teal-color);
+}
+
+.field_error.is_ok { color: var(--success-text); }
+
+.form_status {
+  max-width: none;
+  margin-top: var(--spacing-unit);
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  border: 1px solid;
+  border-radius: var(--radius);
+}
+
+.form_status[hidden] { display: none; }
+
+.form_status.is_success {
+  color: var(--text-color);
+  background-color: var(--teal-tint);
+  border-color: var(--teal-color);
+}
+
+.form_status.is_error {
+  color: var(--text-color);
+  background-color: var(--copper-tint);
+  border-color: var(--error-color);
 }
 
 .form_actions {
