@@ -94,5 +94,5 @@ la página lo avisa con el error 403.
 
 ## Tecnologías
 
-HTML5, CSS3 (Flexbox, Grid, variables, media queries), JavaScript ES6+ (módulos de script, `async/await`,
+HTML5, CSS3 (Flexbox, Grid, variables, media queries), JavaScript ES6+ (un script por funcionalidad, `async/await`,
 `fetch`, `localStorage`, Constraint Validation API), Git y GitHub Pages.
