@@ -504,11 +504,15 @@ progress {
 /* Buscador de proyectos */
 .search_form {
   display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  max-width: 28rem;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  max-width: 34rem;
   margin-bottom: var(--spacing-sm);
 }
+
+.search_form label { flex: 1 0 100%; }
+.search_form input { flex: 1 1 14rem; }
 
 .result_count {
   margin-bottom: var(--spacing-unit);
