@@ -121,64 +121,24 @@
             <h2 id="proyectos_titulo">Proyectos</h2>
             <p class="lede">Trabajos desarrollados como parte de la carrera y por iniciativa propia.</p>
 
-            <ul class="project_grid">
-                <li>
-                    <article class="project_card">
-                        <p class="meta">Programación II · Marzo 2025 · 90/100</p>
-                        <h3>Sistema de Cine en Java</h3>
-                        <p>Framework de gestión de un cine aplicando programación orientada a objetos.</p>
-                        <details>
-                            <summary>Ver detalles</summary>
-                            <p>
-                                Framework polimórfico con control de membresías, registro de clientes,
-                                horarios de funciones y reportes básicos, aplicando herencia y encapsulamiento.
-                            </p>
-                        </details>
-                    </article>
-                </li>
-                <li>
-                    <article class="project_card">
-                        <p class="meta">Base de Datos I · Abril 2026</p>
-                        <h3>Base de Datos — Mercado Rodríguez</h3>
-                        <p>Esquema relacional conceptual para digitalizar la información del comercio informal.</p>
-                        <details>
-                            <summary>Ver detalles</summary>
-                            <p>
-                                Modelo entidad-relación con normalización, pensado para registrar precios,
-                                sus rangos de volatilidad y el historial de transacciones del mercado.
-                            </p>
-                        </details>
-                    </article>
-                </li>
-                <li>
-                    <article class="project_card">
-                        <p class="meta">Metodología de la Investigación · Mayo 2026</p>
-                        <h3>Propuesta de paper para reducir el desperdicio de agua en La Paz</h3>
-                        <p>Propuesta de tesis para reducir el porcentaje de desperdicio de agua en la ciudad de La Paz.</p>
-                    </article>
-                </li>
-                <li>
-                    <article class="project_card">
-                        <p class="meta">Programación I · Octubre 2025</p>
-                        <h3>Sistema de Bancos (depósitos y retiros)</h3>
-                        <p>Implementación de un sistema de gestión bancaria con funcionalidades básicas de depósito y retiro.</p>
-                    </article>
-                </li>
-                <li>
-                    <article class="project_card">
-                        <p class="meta">Septiembre 2025</p>
-                        <h3>Depuración de código Assembly (NASM x86, 32 bits)</h3>
-                        <p>Identificación y corrección de errores en bloques de código Assembly de 32 bits.</p>
-                    </article>
-                </li>
-                <li>
-                    <article class="project_card">
-                        <p class="meta">Proyecto personal · GitHub</p>
-                        <h3>HabitTracker</h3>
-                        <p>Repositorio para el seguimiento del propio proceso de desarrollo de software.</p>
-                    </article>
-                </li>
-            </ul>
+            <form class="search_form" role="search" aria-label="Buscar proyectos">
+                <label for="buscador_proyectos">Buscar proyectos</label>
+                <input type="search" id="buscador_proyectos" name="buscador_proyectos"
+                    placeholder="Ej: Java, base de datos, 2025" autocomplete="off"
+                    aria-controls="lista_proyectos">
+            </form>
+
+            <p id="resultado_filtro" class="result_count" role="status" aria-live="polite"></p>
+
+            <ul id="lista_proyectos" class="project_grid"></ul>
+
+            <p id="sin_resultados" class="empty_message" hidden>
+                No se encontraron proyectos con ese término. Prueba con otra palabra.
+            </p>
+
+            <noscript>
+                <p class="empty_message">Activa JavaScript para ver y filtrar la lista de proyectos.</p>
+            </noscript>
         </section>
 
         <section id="certificaciones" aria-labelledby="certificaciones_titulo">
@@ -380,7 +340,7 @@
                 </details>
             </aside>
 
-            <form id="formulario_contacto" aria-labelledby="form_titulo">
+            <form id="formulario_contacto" class="contact_form" aria-labelledby="form_titulo">
                 <h3 id="form_titulo">Formulario de contacto</h3>
 
                 <fieldset>
@@ -475,6 +435,8 @@
         <p><strong>Asignatura:</strong> SIS-214 Tecnologías Web I</p>
     </footer>
 
+    <script src="js/utilidades.js" defer></script>
     <script src="js/menu.js" defer></script>
+    <script src="js/filtro.js" defer></script>
 </body>
 </html>
