@@ -44,6 +44,7 @@
                 <li><a href="#habilidades">Habilidades</a></li>
                 <li><a href="#idiomas">Idiomas</a></li>
                 <li><a href="#multimedia">Multimedia</a></li>
+                <li><a href="#github">GitHub</a></li>
                 <li><a href="#enlaces">Enlaces</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -296,6 +297,19 @@
             </article>
         </section>
 
+        <section id="github" aria-labelledby="github_titulo">
+            <h2 id="github_titulo">Repositorios en GitHub</h2>
+            <p class="lede">Lista obtenida en vivo desde la API pública de GitHub (usuario TheLightZen).</p>
+
+            <p id="estado_github" class="api_status" role="status" aria-live="polite"></p>
+
+            <ul id="lista_repos" class="project_grid"></ul>
+
+            <p>
+                <button type="button" id="reintentar_github" class="btn btn_ghost" hidden>Reintentar</button>
+            </p>
+        </section>
+
         <section id="enlaces" aria-labelledby="enlaces_titulo">
             <h2 id="enlaces_titulo">Enlaces profesionales</h2>
 
@@ -443,5 +457,6 @@
     <script src="js/menu.js" defer></script>
     <script src="js/filtro.js" defer></script>
     <script src="js/formulario.js" defer></script>
+    <script src="js/github.js" defer></script>
 </body>
 </html>

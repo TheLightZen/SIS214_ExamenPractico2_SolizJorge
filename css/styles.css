@@ -71,6 +71,9 @@
 }
 
 /* ---------- Base ---------- */
+/* El atributo hidden debe ganarle a los display definidos en clases (.btn, etc.) */
+[hidden] { display: none !important; }
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
@@ -521,6 +524,57 @@ progress {
   border: 1px dashed var(--border-color);
 }
 
+/* Repositorios de GitHub: estados de la peticion (loading / success / error) */
+.project_card h3 a {
+  color: var(--primary-color);
+  border-bottom: none;
+}
+
+.project_card h3 a:hover { color: var(--accent-text); }
+
+.api_status {
+  margin-bottom: var(--spacing-unit);
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background-color: var(--surface-color);
+  border: 1px dashed var(--border-color);
+}
+
+.api_status:empty { display: none; }
+
+.api_status[data-estado="loading"]::before {
+  content: "";
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-right: 0.6rem;
+  vertical-align: -0.1em;
+  border: 2px solid var(--secondary-color);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+.api_status[data-estado="success"] {
+  color: var(--success-text);
+  border-style: solid;
+  border-color: var(--teal-color);
+}
+
+.api_status[data-estado="error"] {
+  color: var(--text-color);
+  background-color: var(--copper-tint);
+  border-style: solid;
+  border-color: var(--error-color);
+}
+
+@keyframes girar { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .api_status[data-estado="loading"]::before { animation: none; }
+}
+
 /* ---------- Certificaciones y chips (Flexbox) ---------- */
 .cert_list {
   display: flex;
@@ -782,8 +836,6 @@ textarea { resize: vertical; }
   border: 1px solid;
   border-radius: var(--radius);
 }
-
-.form_status[hidden] { display: none; }
 
 .form_status.is_success {
   color: var(--text-color);
